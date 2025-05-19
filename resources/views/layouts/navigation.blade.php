@@ -21,6 +21,16 @@
                         {{ __('Manage Product') }}
                     </x-nav-link>
                 </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('cart.index')">
+                        {{ __('Cart Management') }}
+                    </x-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('role.index')">
+                        {{ __('Role Management') }}
+                    </x-nav-link>
+                </div>
             </div>
 
             <!-- Settings Dropdown -->
@@ -51,6 +61,10 @@
                                     onclick="event.preventDefault();
                                                 this.closest('form').submit();">
                                 {{ __('Log Out') }}
+                            </x-dropdown-link>
+
+                            <x-dropdown-link :href="route('cacheclear')">
+                            {{ __('Cache Clear') }}
                             </x-dropdown-link>
                         </form>
                     </x-slot>
