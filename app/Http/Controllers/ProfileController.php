@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\CacheClearRequested;
 use App\Http\Requests\ProfileUpdateRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -56,5 +57,13 @@ class ProfileController extends Controller
         $request->session()->regenerateToken();
 
         return Redirect::to('/');
+    }
+
+    public function cacheClear()
+    {
+        CacheClearRequested::dispatch(); // using dispatcahable trait
+        // event(new CacheClearRequested());// Not using dispatcahable trait
+        return redirect()->back()->with('success');
+
     }
 }
