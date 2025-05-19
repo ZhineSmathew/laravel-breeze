@@ -23,6 +23,11 @@
             <x-input-error class="mt-2" :messages="$errors->get('name')" />
         </div>
 
+         <div>
+            <x-input-label for="name" :value="__('Role Name')" />
+            <x-text-input  class="mt-1 block w-full" :value="old('rolename', $userRole[0])" required autofocus autocomplete="rolename" readonly/>
+        </div>
+
         <div>
             <x-input-label for="email" :value="__('Email')" />
             <x-text-input id="email" name="email" type="email" class="mt-1 block w-full" :value="old('email', $user->email)" required autocomplete="username" />

@@ -30,6 +30,6 @@ Route::post('decrease/{id}', [CartController::class, 'removeQuantity'])->name('c
 
 Route::resource('cart', CartController::class);
 
-Route::resource('role', RoleController::class);
+Route::resource('role', RoleController::class)->middleware('permission:role-module');
 
 Route::get('/cacheclear', [ProfileController::class, 'cacheClear'])->name('cacheclear');
